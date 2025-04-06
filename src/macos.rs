@@ -270,7 +270,7 @@ fn strip_str<'a>(text: &'a str) -> &'a str {
         .unwrap_or(text)
 }
 
-fn default_network_service() -> Result<String> {
+pub fn default_network_service() -> Result<String> {
     let socket = UdpSocket::bind("0.0.0.0:0")?;
     socket.connect("1.1.1.1:80")?;
     let ip = socket.local_addr()?.ip();
